@@ -43,7 +43,7 @@
             position: relative;
         }
         
-        /* افکت آسمان */
+        /* افکت آسمان پویا */
         .sky {
             position: fixed;
             top: 0;
@@ -51,40 +51,86 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(to bottom, var(--deep-blue), var(--sky-blue));
+            background: linear-gradient(to bottom, #0077be, #00b4ff, #89d6ff);
             overflow: hidden;
+            animation: skyAnimation 20s infinite alternate;
         }
         
-        /* ابرها */
+        @keyframes skyAnimation {
+            0% { background: linear-gradient(to bottom, #0077be, #00b4ff, #89d6ff); }
+            50% { background: linear-gradient(to bottom, #005a8c, #0088cc, #66c2ff); }
+            100% { background: linear-gradient(to bottom, #003d5c, #0066a1, #4db8ff); }
+        }
+        
+        /* ابرها با طرح واقعی‌تر */
         .cloud {
             position: absolute;
             background: var(--cloud-white);
             border-radius: 50%;
-            opacity: 0.8;
+            opacity: 0.9;
+            filter: blur(5px);
             animation: moveCloud linear infinite;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
         
         @keyframes moveCloud {
             0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100px); }
+            100% { transform: translateX(-300px); }
         }
         
-        /* هواپیما */
+        /* هواپیما با افکت واقعی‌تر */
         .airplane {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230056B3"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>');
+            width: 120px;
+            height: 120px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%230056B3" d="M511.6 255.6c0-3.1-1.6-6-4.2-7.7L276.2 91.4c-8.4-5.6-19.6-5.6-28 0L4.2 247.9c-2.6 1.7-4.2 4.6-4.2 7.7 0 5.6 4.8 10.4 10.4 10.4h28.9l176.7 89.3c8.4 4.2 18.2 4.2 26.6 0l176.7-89.3h28.9c5.6 0 10.4-4.8 10.4-10.4zM0 296.5v144c0 5.6 4.8 10.4 10.4 10.4h491.2c5.6 0 10.4-4.8 10.4-10.4v-144c0-5.6-4.8-10.4-10.4-10.4H10.4C4.8 286.1 0 290.9 0 296.5z"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
-            animation: fly 20s linear infinite;
+            animation: fly 15s linear infinite;
             z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(0,86,179,0.5));
         }
         
         @keyframes fly {
-            0% { transform: translateX(-100px) translateY(50px) rotate(10deg); }
-            50% { transform: translateX(50vw) translateY(30px) rotate(0deg); }
-            100% { transform: translateX(100vw) translateY(50px) rotate(-10deg); }
+            0% { 
+                transform: translateX(-150px) translateY(100px) rotate(5deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% { 
+                transform: translateX(50vw) translateY(50px) rotate(0deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(110vw) translateY(100px) rotate(-5deg);
+                opacity: 0;
+            }
+        }
+        
+        /* دود هواپیما */
+        .smoke {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: smoke 3s linear forwards;
+        }
+        
+        @keyframes smoke {
+            0% {
+                transform: translate(0,0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50px,-20px) scale(3);
+                opacity: 0;
+            }
         }
         
         .container {
@@ -95,36 +141,58 @@
             z-index: 2;
         }
         
-        /* هدر */
+        /* هدر با افکت پنجره هواپیما */
         header {
             background: rgba(30, 144, 255, 0.7);
             color: white;
-            padding: 100px 0;
+            padding: 120px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-bottom: 50px;
             box-shadow: var(--shadow);
-            border-radius: 0 0 20px 20px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 0 0 30px 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            background-image: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background-size: 20px 20px;
+            opacity: 0.5;
         }
         
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            background: linear-gradient(to right, white, #aad4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
         
         h2 {
             color: var(--dark-blue);
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin: 40px 0 20px;
             position: relative;
             padding-bottom: 15px;
             font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
         h2::after {
@@ -132,31 +200,49 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 80px;
+            width: 100px;
             height: 4px;
             background: linear-gradient(90deg, var(--sun-yellow), var(--deep-blue));
             border-radius: 2px;
         }
         
-        /* کارت‌ها */
+        /* کارت‌ها با طرح پنجره هواپیما */
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 30px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
         }
         
         .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .card::after {
             content: "";
             position: absolute;
             top: 0;
@@ -166,10 +252,10 @@
             background: linear-gradient(90deg, var(--deep-blue), var(--sun-yellow));
         }
         
-        /* دکمه‌ها */
+        /* دکمه‌ها با افکت مدرن */
         .btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
@@ -182,7 +268,22 @@
             position: relative;
             overflow: hidden;
             font-size: 1.1rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.2) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.2) 75%);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            z-index: -1;
         }
         
         .btn-primary {
@@ -192,8 +293,8 @@
         
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--dark-blue), var(--plane-blue));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 86, 179, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.5);
         }
         
         .btn-secondary {
@@ -203,18 +304,19 @@
         
         .btn-secondary:hover {
             background: linear-gradient(135deg, #FFA500, var(--sun-yellow));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(255, 193, 7, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5);
         }
         
-        /* قیمت */
+        /* قیمت با افکت ویژه */
         .price {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--plane-blue);
             margin: 25px 0;
             position: relative;
             display: inline-block;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         
         .price::after {
@@ -244,7 +346,7 @@
         
         .price-plan.featured {
             border: 2px solid var(--sun-yellow);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
         }
         
         .price-plan.featured::before {
@@ -257,8 +359,9 @@
             padding: 5px 30px;
             font-size: 0.9rem;
             transform: rotate(-45deg);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             z-index: 1;
+            font-weight: bold;
         }
         
         /* نشان‌های ویژه */
@@ -281,16 +384,22 @@
             color: var(--text-dark);
         }
         
-        /* فوتر */
+        /* فوتر با افکت ویژه */
         footer {
             background: rgba(0, 51, 102, 0.9);
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 60px 0;
             margin-top: 80px;
             position: relative;
-            backdrop-filter: blur(5px);
-            border-top: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.3);
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background-size: 30px 30px;
         }
         
         /* لیست ویژگی‌ها */
@@ -301,7 +410,7 @@
         
         .feature-list li {
             padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             position: relative;
             padding-right: 30px;
             font-size: 1.1rem;
@@ -309,45 +418,69 @@
         }
         
         .feature-list li::before {
-            content: "✓";
-            color: var(--deep-blue);
+            content: "✈";
+            color: var(--plane-blue);
             font-weight: bold;
             position: absolute;
             right: 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
         
-        /* بخش CTA */
+        /* بخش CTA با افکت ویژه */
         .cta-box {
             background: rgba(30, 144, 255, 0.8);
-            border-radius: 15px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 50px 40px;
             color: white;
             text-align: center;
             margin: 50px auto;
             max-width: 800px;
-            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(30, 144, 255, 0.4);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(10px);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
+        }
+        
+        .cta-box::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                rgba(255,255,255,0.1) 50%,
+                transparent 55%
+            );
+            animation: shine 4s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(100%,100%); }
         }
         
         .cta-box h2 {
             color: white;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
         }
         
         .cta-box p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
         
         /* انیمیشن‌ها */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
@@ -362,11 +495,11 @@
         /* ریسپانسیو */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .pricing-grid {
@@ -374,26 +507,31 @@
             }
             
             .price {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .cta-box {
                 padding: 30px 20px;
             }
+            
+            .airplane {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- آسمان و ابرها -->
+    <!-- آسمان پویا -->
     <div class="sky" id="sky"></div>
     
-    <!-- هواپیما -->
+    <!-- هواپیما با دود -->
     <div class="airplane" id="airplane"></div>
     
     <header class="animated">
         <div class="container">
-            <h1>خرید v2ray نامحدود با سرعت VIP</h1>
-            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">سرویس اختصاصی با ترافیک کاملاً نامحدود و پشتیبانی 24 ساعته</p>
+            <h1>✈ خرید v2ray نامحدود با سرعت VIP ✈</h1>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 20px auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">سرویس اختصاصی با ترافیک کاملاً نامحدود و پشتیبانی 24 ساعته</p>
         </div>
     </header>
     
@@ -403,18 +541,18 @@
             <h2>پرواز نامحدود با اینترنت آزاد!</h2>
             <p>همین حالا به جمع کاربران VIP NetFly بپیوندید و از اینترنت بدون محدودیت لذت ببرید</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">خرید آسان از تلگرام</a>
-                <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">✈ خرید آسان از تلگرام</a>
+                <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">💬 پشتیبانی آنلاین</a>
             </div>
         </div>
         
         <!-- پلن‌های قیمت‌گذاری -->
         <h2 class="animated delay-1">پلن‌های ویژه v2ray نامحدود</h2>
-        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem; color: var(--text-dark);">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی (همگی 3 کاربره)</p>
+        <p class="animated delay-1" style="text-align: center; font-size: 1.2rem; color: var(--text-dark); text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی (همگی 3 کاربره)</p>
         
         <div class="pricing-grid">
             <div class="card price-plan animated delay-1">
-                <h3>پلن طلایی</h3>
+                <h3>✈ پلن اقتصادی</h3>
                 <p>اشتراک 1 ماهه نامحدود (3 کاربره)</p>
                 <div class="price">275 هزار تومان</div>
                 <ul class="feature-list">
@@ -424,12 +562,12 @@
                     <li>تغییر سرور نامحدود</li>
                     <li>استفاده همزمان 3 کاربر</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">💬 پشتیبانی آنلاین</a>
             </div>
             
             <div class="card price-plan featured animated delay-2">
-                <h3>پلن الماس <span class="badge badge-popular">پرفروش</span></h3>
+                <h3>✈ پلن تجاری <span class="badge badge-popular">پرفروش</span></h3>
                 <p>اشتراک 3 ماهه نامحدود (3 کاربره)</p>
                 <div class="price">575 هزار تومان</div>
                 <ul class="feature-list">
@@ -439,12 +577,12 @@
                     <li>اولویت در سرورها</li>
                     <li>تضمین کیفیت سرعت</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">💬 پشتیبانی آنلاین</a>
             </div>
             
             <div class="card price-plan animated delay-3">
-                <h3>پلن پلاتین <span class="badge badge-new">جدید</span></h3>
+                <h3>✈ پلن سازمانی <span class="badge badge-new">جدید</span></h3>
                 <p>اشتراک 6 ماهه نامحدود (3 کاربره)</p>
                 <div class="price">999 هزار تومان</div>
                 <ul class="feature-list">
@@ -454,59 +592,33 @@
                     <li>سرورهای اختصاصی</li>
                     <li>تضمین بازگشت وجه</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">💬 پشتیبانی آنلاین</a>
             </div>
         </div>
         
         <!-- ویژگی‌های سرویس -->
         <div class="card animated delay-2">
-            <h2>چرا سرویس نامحدود NetFly؟</h2>
+            <h2>✈ چرا سرویس نامحدود NetFly؟</h2>
             <p>سرویس‌های نامحدود ما برای کاربرانی طراحی شده که نیاز به اتصال دائمی و پایدار دارند:</p>
             
             <div class="pricing-grid" style="margin-top: 30px;">
                 <div class="card">
-                    <h3>سرعت باورنکردنی</h3>
+                    <h3>✈ سرعت باورنکردنی</h3>
                     <p>سرورهای پرسرعت در چندین کشور مختلف با پهنای باند اختصاصی</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
-                    <h3>امنیت فوق‌العاده</h3>
+                    <h3>✈ امنیت فوق‌العاده</h3>
                     <p>استفاده از پروتکل‌های پیشرفته و رمزنگاری سطح بالا</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
-                    <h3>پایداری 99.9%</h3>
+                    <h3>✈ پایداری 99.9%</h3>
                     <p>سیستم مانیتورینگ لحظه‌ای برای اطمینان از آپتایم بالا</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- کلاینت‌های پیشنهادی -->
-        <div class="card animated delay-3">
-            <h2>پشتیبانی از تمام کلاینت‌های محبوب</h2>
-            <p>ما پشتیبانی کامل از تمام کلاینت‌های محبوب را ارائه می‌دهیم:</p>
-            
-            <div class="pricing-grid" style="margin-top: 30px;">
-                <div class="card">
-                    <h3>v2rayNG</h3>
-                    <p>بهترین انتخاب برای کاربران اندروید</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                </div>
-                
-                <div class="card">
-                    <h3>v2box</h3>
-                    <p>راهکار ایده‌آل برای کاربران iOS</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
-                </div>
-                
-                <div class="card">
-                    <h3>v2rayTun</h3>
-                    <p>برای کاربران حرفه‌ای اندروید</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">✈ خرید آسان از تلگرام</a>
                 </div>
             </div>
         </div>
@@ -517,10 +629,10 @@
             <p>همین حالا با کارشناس فروش ما در تلگرام تماس بگیرید و مشاوره رایگان دریافت کنید</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">
-                    <span style="margin-left: 8px;">📩</span> ارتباط با کارشناس (O2net_Admin@)
+                    ✈ ارتباط با کارشناس (O2net_Admin@)
                 </a>
                 <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">
-                    <span style="margin-left: 8px;">💬</span> پشتیبانی آنلاین
+                    💬 پشتیبانی آنلاین
                 </a>
             </div>
         </div>
@@ -528,26 +640,27 @@
     
     <footer>
         <div class="container">
-            <p style="font-size: 1.2rem; margin-bottom: 15px;">© 2023 NetFly - تمام حقوق محفوظ است</p>
-            <p>ارائه دهنده بهترین سرویس‌های v2ray نامحدود با کیفیت VIP</p>
-            <p style="margin-top: 20px;">کارشناس فروش: <a href="https://t.me/o2net_admin" style="color: var(--sun-yellow); text-decoration: none;">O2net_Admin@</a></p>
+            <p style="font-size: 1.3rem; margin-bottom: 15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">© 2023 NetFly - تمام حقوق محفوظ است</p>
+            <p style="margin-bottom: 20px;">ارائه دهنده بهترین سرویس‌های v2ray نامحدود با کیفیت VIP</p>
+            <p style="margin-top: 20px;">کارشناس فروش: <a href="https://t.me/o2net_admin" style="color: var(--sun-yellow); text-decoration: none; font-weight: bold;">O2net_Admin@</a></p>
         </div>
     </footer>
 
     <script>
-        // ایجاد ابرها
+        // ایجاد ابرها با طرح واقعی‌تر
         function createClouds() {
             const sky = document.getElementById('sky');
-            const cloudCount = 10;
+            const cloudCount = 12;
             
             for (let i = 0; i < cloudCount; i++) {
                 const cloud = document.createElement('div');
                 cloud.className = 'cloud';
                 
                 // اندازه تصادفی برای ابرها
-                const size = Math.random() * 100 + 50;
-                cloud.style.width = `${size}px`;
-                cloud.style.height = `${size * 0.6}px`;
+                const width = Math.random() * 200 + 100;
+                const height = width * 0.4;
+                cloud.style.width = `${width}px`;
+                cloud.style.height = `${height}px`;
                 
                 // موقعیت تصادفی
                 cloud.style.top = `${Math.random() * 100}%`;
@@ -557,15 +670,40 @@
                 const duration = Math.random() * 60 + 60;
                 cloud.style.animationDuration = `${duration}s`;
                 
+                // تاخیر تصادفی
+                cloud.style.animationDelay = `${Math.random() * 60}s`;
+                
                 sky.appendChild(cloud);
             }
         }
         
-        // ایجاد هواپیما
+        // ایجاد هواپیما و دود
         function createAirplane() {
             const airplane = document.getElementById('airplane');
             airplane.style.top = `${Math.random() * 50 + 10}%`;
             airplane.style.animationDuration = `${Math.random() * 10 + 15}s`;
+            
+            // ایجاد دود
+            setInterval(() => {
+                if(Math.random() > 0.3) {
+                    const smoke = document.createElement('div');
+                    smoke.className = 'smoke';
+                    
+                    const airplaneRect = airplane.getBoundingClientRect();
+                    const airplaneLeft = airplaneRect.left + airplaneRect.width / 2;
+                    const airplaneTop = airplaneRect.top + airplaneRect.height / 2;
+                    
+                    smoke.style.left = `${airplaneLeft - 5}px`;
+                    smoke.style.top = `${airplaneTop - 5}px`;
+                    
+                    document.body.appendChild(smoke);
+                    
+                    // حذف دود پس از انیمیشن
+                    setTimeout(() => {
+                        smoke.remove();
+                    }, 3000);
+                }
+            }, 300);
         }
         
         // اجرا پس از لود صفحه
