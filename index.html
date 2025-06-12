@@ -21,17 +21,17 @@
     
     <style>
         :root {
-            --primary: #6c5ce7;
-            --primary-dark: #5649d1;
-            --secondary: #a29bfe;
-            --accent: #fd79a8;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --success: #00b894;
-            --warning: #fdcb6e;
-            --danger: #d63031;
-            --text: #2d3436;
-            --text-light: #636e72;
+            --primary: #0056b3; /* آبی هواپیمایی */
+            --primary-dark: #003d7a;
+            --secondary: #6c757d;
+            --accent: #ffc107; /* زرد هواپیمایی */
+            --dark: #343a40;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --warning: #fd7e14;
+            --danger: #dc3545;
+            --text: #212529;
+            --text-light: #6c757d;
             --shadow: 0 10px 20px rgba(0,0,0,0.1);
             --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
         }
@@ -48,6 +48,8 @@
             color: var(--text);
             line-height: 1.8;
             overflow-x: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23e9ecef" d="M50 0 L100 50 L50 100 L0 50 Z" opacity="0.05"/></svg>');
+            background-size: 150px 150px;
         }
         
         .container {
@@ -56,9 +58,12 @@
             padding: 0 20px;
         }
         
-        /* هدر با افکت مدرن */
+        /* هدر با تم هواپیمایی */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-position: bottom;
+            background-repeat: no-repeat;
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -75,7 +80,8 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+            background-size: 100px 100px;
             opacity: 0.3;
         }
         
@@ -107,7 +113,7 @@
             border-radius: 2px;
         }
         
-        /* کارت‌های قیمت با افکت خرید */
+        /* کارت‌های قیمت با تم هواپیمایی */
         .card {
             background: white;
             border-radius: 12px;
@@ -118,6 +124,7 @@
             border: 1px solid rgba(0,0,0,0.05);
             position: relative;
             overflow: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23f8f9fa" d="M0,0 L100,0 L100,100 L0,100 Z" opacity="0.05"/></svg>');
         }
         
         .card:hover {
@@ -180,25 +187,25 @@
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(108, 99, 231, 0.4);
+            box-shadow: 0 8px 15px rgba(0, 86, 179, 0.4);
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, var(--success), #1dd1a1);
-            color: white;
+            background: linear-gradient(135deg, var(--accent), #e0a800);
+            color: #212529;
         }
         
         .btn-secondary:hover {
-            background: linear-gradient(135deg, #1dd1a1, var(--success));
+            background: linear-gradient(135deg, #e0a800, var(--accent));
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.4);
+            box-shadow: 0 8px 15px rgba(255, 193, 7, 0.4);
         }
         
         /* استایل قیمت با جلوه ویژه */
         .price {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--danger);
+            color: var(--primary);
             margin: 25px 0;
             position: relative;
             display: inline-block;
@@ -211,7 +218,7 @@
             right: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--danger), transparent);
+            background: linear-gradient(90deg, var(--primary), transparent);
         }
         
         /* شبکه قیمت‌گذاری */
@@ -236,7 +243,7 @@
         
         .price-plan.featured {
             border: 2px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(108, 99, 231, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
         }
         
         .price-plan.featured::before {
@@ -245,7 +252,7 @@
             top: 15px;
             left: -30px;
             background: var(--accent);
-            color: white;
+            color: #212529;
             padding: 5px 30px;
             font-size: 0.9rem;
             transform: rotate(-45deg);
@@ -264,7 +271,7 @@
         }
         
         .badge-new {
-            background: var(--accent);
+            background: var(--danger);
             color: white;
         }
         
@@ -275,12 +282,15 @@
         
         /* فوتر */
         footer {
-            background: linear-gradient(135deg, var(--dark), #3a3d50);
+            background: linear-gradient(135deg, var(--dark), #2a2e33);
             color: white;
             text-align: center;
             padding: 50px 0;
             margin-top: 80px;
             position: relative;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>');
+            background-position: top;
+            background-repeat: no-repeat;
         }
         
         footer::before {
@@ -290,7 +300,8 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+            background-size: 100px 100px;
             opacity: 0.3;
         }
         
@@ -319,17 +330,18 @@
         
         /* بخش CTA جذاب */
         .cta-box {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 15px;
             padding: 40px;
             color: white;
             text-align: center;
             margin: 50px auto;
             max-width: 800px;
-            box-shadow: 0 15px 35px rgba(108, 99, 231, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 86, 179, 0.3);
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.2);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
         }
         
         .cta-box h2 {
@@ -342,6 +354,27 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+        }
+        
+        /* آیکون هواپیما */
+        .airplane-icon {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .airplane-icon-1 {
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .airplane-icon-2 {
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
         }
         
         /* انیمیشن‌ها */
@@ -385,6 +418,8 @@
 <body>
     <header class="animated">
         <div class="container">
+            <svg class="airplane-icon airplane-icon-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>
+            <svg class="airplane-icon airplane-icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>
             <h1>خرید v2ray نامحدود با سرعت VIP</h1>
             <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">سرویس اختصاصی با ترافیک کاملاً نامحدود و پشتیبانی 24 ساعته</p>
         </div>
@@ -403,20 +438,21 @@
         
         <!-- پلن‌های قیمت‌گذاری -->
         <h2 class="animated delay-1">پلن‌های ویژه v2ray نامحدود</h2>
-        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem;">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی</p>
+        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem;">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی (همگی 3 کاربره)</p>
         
         <div class="pricing-grid">
             <div class="card price-plan animated delay-1">
                 <h3>پلن طلایی</h3>
-                <p>اشتراک 1 ماهه نامحدود (1 کاربره)</p>
+                <p>اشتراک 1 ماهه نامحدود (3 کاربره)</p>
                 <div class="price">275 هزار تومان</div>
                 <ul class="feature-list">
                     <li>ترافیک کاملاً نامحدود</li>
                     <li>پشتیبانی 24 ساعته</li>
                     <li>سرعت بالا و پایدار</li>
                     <li>تغییر سرور نامحدود</li>
+                    <li>استفاده همزمان 3 کاربر</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
             
@@ -429,22 +465,24 @@
                     <li>استفاده همزمان 3 کاربر</li>
                     <li>پشتیبانی VIP 24 ساعته</li>
                     <li>اولویت در سرورها</li>
+                    <li>تضمین کیفیت سرعت</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
             
             <div class="card price-plan animated delay-3">
                 <h3>پلن پلاتین <span class="badge badge-new">جدید</span></h3>
-                <p>اشتراک 6 ماهه نامحدود (5 کاربره)</p>
+                <p>اشتراک 6 ماهه نامحدود (3 کاربره)</p>
                 <div class="price">999 هزار تومان</div>
                 <ul class="feature-list">
                     <li>ترافیک کاملاً نامحدود</li>
-                    <li>استفاده همزمان 5 کاربر</li>
+                    <li>استفاده همزمان 3 کاربر</li>
                     <li>پشتیبانی VIP اختصاصی</li>
                     <li>سرورهای اختصاصی</li>
+                    <li>تضمین بازگشت وجه</li>
                 </ul>
-                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
         </div>
@@ -458,42 +496,45 @@
                 <div class="card">
                     <h3>سرعت باورنکردنی</h3>
                     <p>سرورهای پرسرعت در چندین کشور مختلف با پهنای باند اختصاصی</p>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
                     <h3>امنیت فوق‌العاده</h3>
                     <p>استفاده از پروتکل‌های پیشرفته و رمزنگاری سطح بالا</p>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
                     <h3>پایداری 99.9%</h3>
                     <p>سیستم مانیتورینگ لحظه‌ای برای اطمینان از آپتایم بالا</p>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
             </div>
         </div>
         
         <!-- کلاینت‌های پیشنهادی -->
         <div class="card animated delay-3">
-            <h2>خرید v2box نامحدود و دیگر کلاینت‌ها</h2>
+            <h2>پشتیبانی از تمام کلاینت‌های محبوب</h2>
             <p>ما پشتیبانی کامل از تمام کلاینت‌های محبوب را ارائه می‌دهیم:</p>
             
             <div class="pricing-grid" style="margin-top: 30px;">
                 <div class="card">
-                    <h3>خرید v2rayng نامحدود</h3>
+                    <h3>v2rayNG</h3>
                     <p>بهترین انتخاب برای کاربران اندروید</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">اطلاعات بیشتر</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
-                    <h3>خرید v2box نامحدود</h3>
+                    <h3>v2box</h3>
                     <p>راهکار ایده‌آل برای کاربران iOS</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">اطلاعات بیشتر</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
                 
                 <div class="card">
-                    <h3>خرید v2raytun نامحدود</h3>
+                    <h3>v2rayTun</h3>
                     <p>برای کاربران حرفه‌ای اندروید</p>
-                    <a href="https://t.me/o2net_admin" class="btn btn-primary">اطلاعات بیشتر</a>
+                    <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید آسان از تلگرام</a>
                 </div>
             </div>
         </div>
@@ -501,10 +542,10 @@
         <!-- بخش نهایی CTA -->
         <div class="cta-box animated delay-3">
             <h2>آماده شروع پرواز نامحدود هستید؟</h2>
-            <p>همین حالا با ما تماس بگیرید و مشاوره رایگان دریافت کنید</p>
+            <p>همین حالا با کارشناس فروش ما در تلگرام تماس بگیرید و مشاوره رایگان دریافت کنید</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">
-                    <span style="margin-left: 8px;">📩</span> ارتباط در تلگرام
+                    <span style="margin-left: 8px;">📩</span> ارتباط با کارشناس (O2net_Admin@)
                 </a>
                 <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">
                     <span style="margin-left: 8px;">💬</span> پشتیبانی آنلاین
@@ -517,6 +558,7 @@
         <div class="container">
             <p style="font-size: 1.2rem; margin-bottom: 15px;">© 2023 NetFly - تمام حقوق محفوظ است</p>
             <p>ارائه دهنده بهترین سرویس‌های v2ray نامحدود با کیفیت VIP</p>
+            <p style="margin-top: 20px;">کارشناس فروش: <a href="https://t.me/o2net_admin" style="color: var(--accent); text-decoration: none;">O2net_Admin@</a></p>
         </div>
     </footer>
 </body>
