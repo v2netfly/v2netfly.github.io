@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- تگ‌های سئو و verify -->
-    <meta name="google-site-verification" content="7duRDIOJuNP1XtZh-jG56MhvEKwCNi2SsZq4rYnYSV0" />
-    <meta name="description" content="خرید v2ray نامحدود پرسرعت با بهترین قیمت - سرویس VIP با پشتیبانی 24 ساعته - ترافیک کاملاً نامحدود">
-    <meta name="keywords" content="خرید v2ray نامحدود, v2ray نامحدود ارزان, خرید v2box نامحدود, v2rayng نامحدود, خرید اشتراک v2ray نامحدود">
-    <meta name="robots" content="index, follow">
-    <title>NetFly | خرید v2ray نامحدود پرسرعت با تضمین کیفیت</title>
+    <title>NetFly | خرید v2ray نامحدود پرسرعت</title>
     
     <!-- اسکریپت گفتینو -->
     <script type="text/javascript">
@@ -21,17 +16,14 @@
     
     <style>
         :root {
-            --primary: #0056b3; /* آبی هواپیمایی */
-            --primary-dark: #003d7a;
-            --secondary: #6c757d;
-            --accent: #ffc107; /* زرد هواپیمایی */
-            --dark: #343a40;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --warning: #fd7e14;
-            --danger: #dc3545;
-            --text: #212529;
-            --text-light: #6c757d;
+            --sky-blue: #87CEEB;
+            --deep-blue: #1E90FF;
+            --cloud-white: #F8F9FA;
+            --sun-yellow: #FFD700;
+            --plane-blue: #0056B3;
+            --dark-blue: #003366;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
             --shadow: 0 10px 20px rgba(0,0,0,0.1);
             --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
         }
@@ -44,45 +36,78 @@
         }
         
         body {
-            background-color: #f8f9fa;
-            color: var(--text);
+            background-color: var(--sky-blue);
+            color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23e9ecef" d="M50 0 L100 50 L50 100 L0 50 Z" opacity="0.05"/></svg>');
-            background-size: 150px 150px;
+            position: relative;
+        }
+        
+        /* افکت آسمان */
+        .sky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, var(--deep-blue), var(--sky-blue));
+            overflow: hidden;
+        }
+        
+        /* ابرها */
+        .cloud {
+            position: absolute;
+            background: var(--cloud-white);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: moveCloud linear infinite;
+        }
+        
+        @keyframes moveCloud {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100px); }
+        }
+        
+        /* هواپیما */
+        .airplane {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230056B3"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            animation: fly 20s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes fly {
+            0% { transform: translateX(-100px) translateY(50px) rotate(10deg); }
+            50% { transform: translateX(50vw) translateY(30px) rotate(0deg); }
+            100% { transform: translateX(100vw) translateY(50px) rotate(-10deg); }
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
         
-        /* هدر با تم هواپیمایی */
+        /* هدر */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-position: bottom;
-            background-repeat: no-repeat;
+            background: rgba(30, 144, 255, 0.7);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-bottom: 50px;
             box-shadow: var(--shadow);
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.3;
+            border-radius: 0 0 20px 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         
         h1 {
@@ -94,7 +119,7 @@
         }
         
         h2 {
-            color: var(--dark);
+            color: var(--dark-blue);
             font-size: 2rem;
             margin: 40px 0 20px;
             position: relative;
@@ -109,27 +134,26 @@
             right: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
+            background: linear-gradient(90deg, var(--sun-yellow), var(--deep-blue));
             border-radius: 2px;
         }
         
-        /* کارت‌های قیمت با تم هواپیمایی */
+        /* کارت‌ها */
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 30px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23f8f9fa" d="M0,0 L100,0 L100,100 L0,100 Z" opacity="0.05"/></svg>');
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
         }
         
         .card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 1);
         }
         
         .card::before {
@@ -139,10 +163,10 @@
             right: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--deep-blue), var(--sun-yellow));
         }
         
-        /* دکمه‌های جذاب برای خرید */
+        /* دکمه‌ها */
         .btn {
             display: inline-block;
             padding: 15px 30px;
@@ -161,51 +185,33 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .btn::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3));
-            transform: rotate(30deg);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-        
-        .btn:hover::after {
-            opacity: 1;
-            right: 100%;
-        }
-        
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--plane-blue), var(--dark-blue));
             color: white;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            background: linear-gradient(135deg, var(--dark-blue), var(--plane-blue));
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0, 86, 179, 0.4);
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, var(--accent), #e0a800);
-            color: #212529;
+            background: linear-gradient(135deg, var(--sun-yellow), #FFA500);
+            color: var(--text-dark);
         }
         
         .btn-secondary:hover {
-            background: linear-gradient(135deg, #e0a800, var(--accent));
+            background: linear-gradient(135deg, #FFA500, var(--sun-yellow));
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(255, 193, 7, 0.4);
         }
         
-        /* استایل قیمت با جلوه ویژه */
+        /* قیمت */
         .price {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--plane-blue);
             margin: 25px 0;
             position: relative;
             display: inline-block;
@@ -218,7 +224,7 @@
             right: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), transparent);
+            background: linear-gradient(90deg, var(--plane-blue), transparent);
         }
         
         /* شبکه قیمت‌گذاری */
@@ -233,17 +239,12 @@
         .price-plan {
             position: relative;
             overflow: hidden;
-            border: 2px solid transparent;
             transition: all 0.3s ease;
         }
         
-        .price-plan:hover {
-            border-color: var(--primary);
-        }
-        
         .price-plan.featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
+            border: 2px solid var(--sun-yellow);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
         }
         
         .price-plan.featured::before {
@@ -251,8 +252,8 @@
             position: absolute;
             top: 15px;
             left: -30px;
-            background: var(--accent);
-            color: #212529;
+            background: var(--sun-yellow);
+            color: var(--text-dark);
             padding: 5px 30px;
             font-size: 0.9rem;
             transform: rotate(-45deg);
@@ -271,38 +272,25 @@
         }
         
         .badge-new {
-            background: var(--danger);
+            background: var(--deep-blue);
             color: white;
         }
         
         .badge-popular {
-            background: var(--success);
-            color: white;
+            background: var(--sun-yellow);
+            color: var(--text-dark);
         }
         
         /* فوتر */
         footer {
-            background: linear-gradient(135deg, var(--dark), #2a2e33);
+            background: rgba(0, 51, 102, 0.9);
             color: white;
             text-align: center;
             padding: 50px 0;
             margin-top: 80px;
             position: relative;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>');
-            background-position: top;
-            background-repeat: no-repeat;
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.05)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.3;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         
         /* لیست ویژگی‌ها */
@@ -317,31 +305,32 @@
             position: relative;
             padding-right: 30px;
             font-size: 1.1rem;
+            color: var(--text-dark);
         }
         
         .feature-list li::before {
             content: "✓";
-            color: var(--success);
+            color: var(--deep-blue);
             font-weight: bold;
             position: absolute;
             right: 0;
             font-size: 1.3rem;
         }
         
-        /* بخش CTA جذاب */
+        /* بخش CTA */
         .cta-box {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: rgba(30, 144, 255, 0.8);
             border-radius: 15px;
             padding: 40px;
             color: white;
             text-align: center;
             margin: 50px auto;
             max-width: 800px;
-            box-shadow: 0 15px 35px rgba(0, 86, 179, 0.3);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.3);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
         }
         
         .cta-box h2 {
@@ -354,27 +343,6 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
-        }
-        
-        /* آیکون هواپیما */
-        .airplane-icon {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        
-        .airplane-icon-1 {
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: 80px;
-        }
-        
-        .airplane-icon-2 {
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
         }
         
         /* انیمیشن‌ها */
@@ -416,29 +384,33 @@
     </style>
 </head>
 <body>
+    <!-- آسمان و ابرها -->
+    <div class="sky" id="sky"></div>
+    
+    <!-- هواپیما -->
+    <div class="airplane" id="airplane"></div>
+    
     <header class="animated">
         <div class="container">
-            <svg class="airplane-icon airplane-icon-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>
-            <svg class="airplane-icon airplane-icon-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22 16.21v-1.895L14 8V4a2 2 0 0 0-4 0v4l-8 6.315v1.895l8-2.526V18l-2 2v2l3.5-1 3.5 1v-2l-2-2v-4.316l8 2.526z"/></svg>
             <h1>خرید v2ray نامحدود با سرعت VIP</h1>
             <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">سرویس اختصاصی با ترافیک کاملاً نامحدود و پشتیبانی 24 ساعته</p>
         </div>
     </header>
     
     <div class="container">
-        <!-- بخش CTA جذاب -->
+        <!-- بخش CTA -->
         <div class="cta-box animated delay-1">
             <h2>پرواز نامحدود با اینترنت آزاد!</h2>
             <p>همین حالا به جمع کاربران VIP NetFly بپیوندید و از اینترنت بدون محدودیت لذت ببرید</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">خرید از تلگرام</a>
+                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">خرید آسان از تلگرام</a>
                 <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
         </div>
         
         <!-- پلن‌های قیمت‌گذاری -->
         <h2 class="animated delay-1">پلن‌های ویژه v2ray نامحدود</h2>
-        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem;">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی (همگی 3 کاربره)</p>
+        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem; color: var(--text-dark);">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی (همگی 3 کاربره)</p>
         
         <div class="pricing-grid">
             <div class="card price-plan animated delay-1">
@@ -558,8 +530,49 @@
         <div class="container">
             <p style="font-size: 1.2rem; margin-bottom: 15px;">© 2023 NetFly - تمام حقوق محفوظ است</p>
             <p>ارائه دهنده بهترین سرویس‌های v2ray نامحدود با کیفیت VIP</p>
-            <p style="margin-top: 20px;">کارشناس فروش: <a href="https://t.me/o2net_admin" style="color: var(--accent); text-decoration: none;">O2net_Admin@</a></p>
+            <p style="margin-top: 20px;">کارشناس فروش: <a href="https://t.me/o2net_admin" style="color: var(--sun-yellow); text-decoration: none;">O2net_Admin@</a></p>
         </div>
     </footer>
+
+    <script>
+        // ایجاد ابرها
+        function createClouds() {
+            const sky = document.getElementById('sky');
+            const cloudCount = 10;
+            
+            for (let i = 0; i < cloudCount; i++) {
+                const cloud = document.createElement('div');
+                cloud.className = 'cloud';
+                
+                // اندازه تصادفی برای ابرها
+                const size = Math.random() * 100 + 50;
+                cloud.style.width = `${size}px`;
+                cloud.style.height = `${size * 0.6}px`;
+                
+                // موقعیت تصادفی
+                cloud.style.top = `${Math.random() * 100}%`;
+                cloud.style.left = `${Math.random() * 100}%`;
+                
+                // سرعت حرکت متفاوت
+                const duration = Math.random() * 60 + 60;
+                cloud.style.animationDuration = `${duration}s`;
+                
+                sky.appendChild(cloud);
+            }
+        }
+        
+        // ایجاد هواپیما
+        function createAirplane() {
+            const airplane = document.getElementById('airplane');
+            airplane.style.top = `${Math.random() * 50 + 10}%`;
+            airplane.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        }
+        
+        // اجرا پس از لود صفحه
+        window.onload = function() {
+            createClouds();
+            createAirplane();
+        };
+    </script>
 </body>
 </html>
