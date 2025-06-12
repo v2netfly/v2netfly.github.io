@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NetFly - خرید v2ray نامحدود پرسرعت با بهترین قیمت - سرویس VIP با پشتیبانی 24 ساعته">
-    <meta name="keywords" content="NetFly, خرید v2ray نامحدود, v2ray نامحدود ارزان, v2box نامحدود, v2rayng نامحدود, v2raytun نامحدود, خرید اشتراک v2ray نامحدود">
-    <title>NetFly | خرید v2ray نامحدود پرسرعت</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazir@5.0.1/index.min.css">
+    <!-- تگ‌های سئو و verify -->
+    <meta name="google-site-verification" content="7duRDIOJuNP1XtZh-jG56MhvEKwCNi2SsZq4rYnYSV0" />
+    <meta name="description" content="خرید v2ray نامحدود پرسرعت با بهترین قیمت - سرویس VIP با پشتیبانی 24 ساعته - ترافیک کاملاً نامحدود">
+    <meta name="keywords" content="خرید v2ray نامحدود, v2ray نامحدود ارزان, خرید v2box نامحدود, v2rayng نامحدود, خرید اشتراک v2ray نامحدود">
+    <meta name="robots" content="index, follow">
+    <title>NetFly | خرید v2ray نامحدود پرسرعت با تضمین کیفیت</title>
+    
+    <!-- اسکریپت گفتینو -->
+    <script type="text/javascript">
+      !function(){var i="YWA45p",a=window,d=document;function g(){var g=d.createElement("script"),s="https://www.goftino.com/widget/"+i,l=localStorage.getItem("goftino_"+i);g.async=!0,g.src=l?s+"?o="+l:s;d.getElementsByTagName("head")[0].appendChild(g);}"complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);}();
+    </script>
+    
+    <!-- فونت‌های فارسی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/samim-font@v4.0.2/dist/font-face.css" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #6c5ce7;
+            --primary-dark: #5649d1;
             --secondary: #a29bfe;
             --accent: #fd79a8;
             --dark: #2d3436;
@@ -19,19 +32,22 @@
             --danger: #d63031;
             --text: #2d3436;
             --text-light: #636e72;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 30px rgba(0,0,0,0.2);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Vazir, sans-serif;
+            font-family: Vazir, Samim, sans-serif;
         }
         
         body {
-            background: var(--light);
+            background-color: #f8f9fa;
             color: var(--text);
             line-height: 1.8;
+            overflow-x: hidden;
         }
         
         .container {
@@ -40,16 +56,19 @@
             padding: 0 20px;
         }
         
+        /* هدر با افکت مدرن */
         header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
         }
         
-        header::after {
+        header::before {
             content: "";
             position: absolute;
             top: 0;
@@ -65,6 +84,7 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         h2 {
@@ -72,7 +92,8 @@
             font-size: 2rem;
             margin: 40px 0 20px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700;
         }
         
         h2::after {
@@ -86,43 +107,80 @@
             border-radius: 2px;
         }
         
+        /* کارت‌های قیمت با افکت خرید */
         .card {
             background: white;
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             margin-bottom: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
         
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        /* دکمه‌های جذاب برای خرید */
         .btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
             border: none;
             cursor: pointer;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transform: rotate(30deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+            right: 100%;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            box-shadow: 0 5px 15px rgba(108, 99, 231, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(108, 99, 231, 0.4);
         }
         
         .btn-secondary {
@@ -132,30 +190,53 @@
         
         .btn-secondary:hover {
             background: linear-gradient(135deg, #1dd1a1, var(--success));
-            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.4);
         }
         
+        /* استایل قیمت با جلوه ویژه */
         .price {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--danger);
-            margin: 20px 0;
+            margin: 25px 0;
+            position: relative;
+            display: inline-block;
         }
         
+        .price::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--danger), transparent);
+        }
+        
+        /* شبکه قیمت‌گذاری */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 40px;
         }
         
+        /* پلن‌های ویژه */
         .price-plan {
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .price-plan:hover {
+            border-color: var(--primary);
         }
         
         .price-plan.featured {
             border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(108, 99, 231, 0.3);
         }
         
         .price-plan.featured::before {
@@ -166,16 +247,18 @@
             background: var(--accent);
             color: white;
             padding: 5px 30px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             transform: rotate(-45deg);
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
         }
         
+        /* نشان‌های ویژه */
         .badge {
             display: inline-block;
-            padding: 3px 10px;
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 700;
             margin-right: 10px;
         }
@@ -190,33 +273,92 @@
             color: white;
         }
         
+        /* فوتر */
         footer {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark), #3a3d50);
             color: white;
             text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
+            padding: 50px 0;
+            margin-top: 80px;
+            position: relative;
         }
         
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.3;
+        }
+        
+        /* لیست ویژگی‌ها */
         .feature-list {
             list-style: none;
+            margin: 20px 0;
         }
         
         .feature-list li {
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #eee;
             position: relative;
-            padding-right: 25px;
+            padding-right: 30px;
+            font-size: 1.1rem;
         }
         
         .feature-list li::before {
             content: "✓";
             color: var(--success);
+            font-weight: bold;
             position: absolute;
             right: 0;
-            font-weight: bold;
+            font-size: 1.3rem;
         }
         
+        /* بخش CTA جذاب */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            border-radius: 15px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            margin: 50px auto;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(108, 99, 231, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .cta-box h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* انیمیشن‌ها */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* ریسپانسیو */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -229,68 +371,113 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .price {
+                font-size: 2rem;
+            }
+            
+            .cta-box {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="animated">
         <div class="container">
-            <h1>خرید v2ray نامحدود با بهترین کیفیت</h1>
-            <p>سرویس VIP با سرعت بالا و پشتیبانی 24 ساعته</p>
+            <h1>خرید v2ray نامحدود با سرعت VIP</h1>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">سرویس اختصاصی با ترافیک کاملاً نامحدود و پشتیبانی 24 ساعته</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="card" style="margin-top: -30px; text-align: center;">
-            <h2>پلن‌های ویژه v2ray نامحدود</h2>
-            <p>انتخاب مناسب برای کاربران حرفه‌ای و سازمانی</p>
+        <!-- بخش CTA جذاب -->
+        <div class="cta-box animated delay-1">
+            <h2>پرواز نامحدود با اینترنت آزاد!</h2>
+            <p>همین حالا به جمع کاربران VIP NetFly بپیوندید و از اینترنت بدون محدودیت لذت ببرید</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">خرید از تلگرام</a>
+                <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
+            </div>
         </div>
+        
+        <!-- پلن‌های قیمت‌گذاری -->
+        <h2 class="animated delay-1">پلن‌های ویژه v2ray نامحدود</h2>
+        <p class="animated delay-1" style="text-align: center; font-size: 1.1rem;">انتخاب مناسب برای کاربران حرفه‌ای و سازمانی</p>
         
         <div class="pricing-grid">
-            <div class="card price-plan">
+            <div class="card price-plan animated delay-1">
                 <h3>پلن طلایی</h3>
                 <p>اشتراک 1 ماهه نامحدود (1 کاربره)</p>
-                <p class="price">275 هزار تومان</p>
+                <div class="price">275 هزار تومان</div>
+                <ul class="feature-list">
+                    <li>ترافیک کاملاً نامحدود</li>
+                    <li>پشتیبانی 24 ساعته</li>
+                    <li>سرعت بالا و پایدار</li>
+                    <li>تغییر سرور نامحدود</li>
+                </ul>
                 <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
-                <a href="#" class="btn btn-secondary">خرید از سایت</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
             
-            <div class="card price-plan featured">
+            <div class="card price-plan featured animated delay-2">
                 <h3>پلن الماس <span class="badge badge-popular">پرفروش</span></h3>
                 <p>اشتراک 3 ماهه نامحدود (3 کاربره)</p>
-                <p class="price">575 هزار تومان</p>
+                <div class="price">575 هزار تومان</div>
+                <ul class="feature-list">
+                    <li>ترافیک کاملاً نامحدود</li>
+                    <li>استفاده همزمان 3 کاربر</li>
+                    <li>پشتیبانی VIP 24 ساعته</li>
+                    <li>اولویت در سرورها</li>
+                </ul>
                 <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
-                <a href="#" class="btn btn-secondary">خرید از سایت</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
             
-            <div class="card price-plan">
+            <div class="card price-plan animated delay-3">
                 <h3>پلن پلاتین <span class="badge badge-new">جدید</span></h3>
                 <p>اشتراک 6 ماهه نامحدود (5 کاربره)</p>
-                <p class="price">999 هزار تومان</p>
+                <div class="price">999 هزار تومان</div>
+                <ul class="feature-list">
+                    <li>ترافیک کاملاً نامحدود</li>
+                    <li>استفاده همزمان 5 کاربر</li>
+                    <li>پشتیبانی VIP اختصاصی</li>
+                    <li>سرورهای اختصاصی</li>
+                </ul>
                 <a href="https://t.me/o2net_admin" class="btn btn-primary">خرید از تلگرام</a>
-                <a href="#" class="btn btn-secondary">خرید از سایت</a>
+                <a href="#" class="btn btn-secondary" onclick="Goftino.open(); return false;">پشتیبانی آنلاین</a>
             </div>
         </div>
         
-        <div class="card">
-            <h2>ویژگی‌های سرویس v2ray نامحدود</h2>
-            <ul class="feature-list">
-                <li>ترافیک کاملاً نامحدود بدون کاهش سرعت</li>
-                <li>پشتیبانی از تمام پروتکل‌های روز (VMess, VLESS, Trojan)</li>
-                <li>سرورهای پرسرعت در چندین کشور مختلف</li>
-                <li>امکان استفاده همزمان (مطابق پلن انتخابی)</li>
-                <li>تغییر سرور بدون محدودیت</li>
-                <li>پشتیبانی 24 ساعته حتی در روزهای تعطیل</li>
-                <li>نصب و راه‌اندازی سریع و آسان</li>
-                <li>امنیت فوق‌العاده با رمزنگاری پیشرفته</li>
-            </ul>
+        <!-- ویژگی‌های سرویس -->
+        <div class="card animated delay-2">
+            <h2>چرا سرویس نامحدود NetFly؟</h2>
+            <p>سرویس‌های نامحدود ما برای کاربرانی طراحی شده که نیاز به اتصال دائمی و پایدار دارند:</p>
+            
+            <div class="pricing-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>سرعت باورنکردنی</h3>
+                    <p>سرورهای پرسرعت در چندین کشور مختلف با پهنای باند اختصاصی</p>
+                </div>
+                
+                <div class="card">
+                    <h3>امنیت فوق‌العاده</h3>
+                    <p>استفاده از پروتکل‌های پیشرفته و رمزنگاری سطح بالا</p>
+                </div>
+                
+                <div class="card">
+                    <h3>پایداری 99.9%</h3>
+                    <p>سیستم مانیتورینگ لحظه‌ای برای اطمینان از آپتایم بالا</p>
+                </div>
+            </div>
         </div>
         
-        <div class="card">
+        <!-- کلاینت‌های پیشنهادی -->
+        <div class="card animated delay-3">
             <h2>خرید v2box نامحدود و دیگر کلاینت‌ها</h2>
             <p>ما پشتیبانی کامل از تمام کلاینت‌های محبوب را ارائه می‌دهیم:</p>
             
-            <div class="pricing-grid" style="margin-top: 20px;">
+            <div class="pricing-grid" style="margin-top: 30px;">
                 <div class="card">
                     <h3>خرید v2rayng نامحدود</h3>
                     <p>بهترین انتخاب برای کاربران اندروید</p>
@@ -311,32 +498,25 @@
             </div>
         </div>
         
-        <div class="card">
-            <h2>چرا سرویس نامحدود NetFly؟</h2>
-            <p>سرویس‌های نامحدود ما برای کاربرانی طراحی شده که:</p>
-            <ul class="feature-list">
-                <li>استفاده سنگین از اینترنت دارند (دانلود، استریم، بازی آنلاین)</li>
-                <li>نیاز به اتصال دائمی و پایدار دارند</li>
-                <li>با چندین دستگاه مختلف کار می‌کنند</li>
-                <li>به دنبال راه‌حل بلندمدت هستند</li>
-                <li>به پشتیبانی حرفه‌ای و سریع نیاز دارند</li>
-            </ul>
-        </div>
-        
-        <div class="card" style="text-align: center;">
-            <h2>آماده پرواز نامحدود هستید؟</h2>
-            <p>همین حالا به جمع کاربران VIP NetFly بپیوندید</p>
-            <div style="margin-top: 30px;">
-                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 30px; display: inline-block; margin: 10px;">ارتباط در تلگرام</a>
-                <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 30px; display: inline-block; margin: 10px;">پشتیبانی آنلاین</a>
+        <!-- بخش نهایی CTA -->
+        <div class="cta-box animated delay-3">
+            <h2>آماده شروع پرواز نامحدود هستید؟</h2>
+            <p>همین حالا با ما تماس بگیرید و مشاوره رایگان دریافت کنید</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://t.me/o2net_admin" class="btn btn-primary" style="width: auto; padding: 15px 40px;">
+                    <span style="margin-left: 8px;">📩</span> ارتباط در تلگرام
+                </a>
+                <a href="#" class="btn btn-secondary" style="width: auto; padding: 15px 40px;" onclick="Goftino.open(); return false;">
+                    <span style="margin-left: 8px;">💬</span> پشتیبانی آنلاین
+                </a>
             </div>
         </div>
     </div>
     
     <footer>
         <div class="container">
-            <p>© 2023 NetFly - تمام حقوق محفوظ است</p>
-            <p>ارائه دهنده بهترین سرویس‌های v2ray نامحدود</p>
+            <p style="font-size: 1.2rem; margin-bottom: 15px;">© 2023 NetFly - تمام حقوق محفوظ است</p>
+            <p>ارائه دهنده بهترین سرویس‌های v2ray نامحدود با کیفیت VIP</p>
         </div>
     </footer>
 </body>
